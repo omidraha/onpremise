@@ -10,15 +10,11 @@ version: '3.4'
 
 x-defaults: &defaults
   restart: unless-stopped
-  build:
-    context: .
-    args:
-      SENTRY_IMAGE: ${SENTRY_IMAGE}
+  build: .
   depends_on:
     - redis
     - postgres
     - memcached
-    - smtp
   env_file: .env
   environment:
     SENTRY_MEMCACHED_HOST: memcached
@@ -30,9 +26,6 @@ x-defaults: &defaults
 
 
 services:
-  smtp:
-    restart: unless-stopped
-    image: tianon/exim4
 
   memcached:
     restart: unless-stopped
@@ -51,7 +44,7 @@ services:
   web:
     <<: *defaults
     ports:
-      - '9000:9000'
+      - '80:9000'
 
   cron:
     <<: *defaults
