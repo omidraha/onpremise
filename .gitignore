@@ -42,7 +42,7 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
-*,cover
+*.cover
 .hypothesis/
 
 # Translations
@@ -73,3 +73,4 @@ docker-compose.override.yml
 
 *.tar
 data/
+.vscode/tags

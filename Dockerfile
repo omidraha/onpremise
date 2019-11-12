@@ -1,1 +1,2 @@
-FROM sentry:9.1-onbuild
+ARG SENTRY_IMAGE
+FROM ${SENTRY_IMAGE}-onbuild
